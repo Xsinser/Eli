@@ -1,0 +1,20 @@
+﻿<Window x:Class="Eli.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Eli"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,68,0,0" TextWrapping="Wrap" Text="" Name="loginBox" VerticalAlignment="Top" Width="120"/>
+        <Label  HorizontalAlignment="Left" Margin="61,37,0,0" VerticalAlignment="Top" Content="Login"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,139,0,0" TextWrapping="Wrap" Text="" Name="passBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="61,108,0,0" VerticalAlignment="Top"/>
+        <Label Content="Type information source" HorizontalAlignment="Left" Margin="320,45,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="320,68,0,0" VerticalAlignment="Top"  Width="120"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="320,124,0,0" Click="Button_Click" VerticalAlignment="Top" Width="110" Height="38"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="320,210,0,0" Name="startButton" Click="StartButton_Click" VerticalAlignment="Top" Width="110" Height="38"/>
+
+    </Grid>
+</Window>
