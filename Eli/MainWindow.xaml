@@ -5,16 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eli"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Xsammer" Height="313" Width="573">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,68,0,0" TextWrapping="Wrap" Text="" Name="loginBox" VerticalAlignment="Top" Width="120"/>
-        <Label  HorizontalAlignment="Left" Margin="61,37,0,0" VerticalAlignment="Top" Content="Login"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="61,139,0,0" TextWrapping="Wrap" Text="" Name="passBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="61,108,0,0" VerticalAlignment="Top"/>
-        <Label Content="Type information source" HorizontalAlignment="Left" Margin="320,45,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="320,68,0,0" VerticalAlignment="Top"  Width="120"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="320,124,0,0" Click="Button_Click" VerticalAlignment="Top" Width="110" Height="38"/>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="320,210,0,0" Name="startButton" Click="StartButton_Click" VerticalAlignment="Top" Width="110" Height="38"/>
+        <TabControl HorizontalAlignment="Left" Height="248" Margin="37,10,0,0" VerticalAlignment="Top" Width="475">
+            <TabItem Header="Начать">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="389*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Start" HorizontalAlignment="Left" Margin="67,38,0,0" x:Name="startButton" Click="StartButton_Click" VerticalAlignment="Top" Width="110" Height="38" Grid.Column="1"/>
+                    <Slider HorizontalAlignment="Left" Name="TimeLabel" Margin="35,134,0,0" VerticalAlignment="Top" Width="193" IsEnabled="False" Grid.Column="1"/>
+                    <Label Content="5 минут" Name="TimeInterface" HorizontalAlignment="Left" Margin="249,134,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Добавить">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="11,41,0,0" TextWrapping="Wrap" Text="" x:Name="loginBox" VerticalAlignment="Top" Width="120"/>
+                    <Label  HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Content="Login"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="11,112,0,0" TextWrapping="Wrap" Text="" x:Name="passBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Password" HorizontalAlignment="Left" Margin="11,81,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Type information source" HorizontalAlignment="Left" Margin="270,18,0,0" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="270,41,0,0" VerticalAlignment="Top"  Name="typesBox" Width="120">
+                        <TextBlock>VK</TextBlock>
+                        <TextBlock>Email</TextBlock>
+ 
+                    </ComboBox>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="270,97,0,0" Click="Button_Click" VerticalAlignment="Top" Width="110" Height="38"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

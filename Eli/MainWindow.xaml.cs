@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Eli
 {
@@ -20,6 +21,9 @@ namespace Eli
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer timer;
+        private Checker checker;
+        private SQLDataWorkerClass worker=new SQLDataWorkerClass();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,12 +31,21 @@ namespace Eli
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            worker.InsertData(loginBox.Text, passBox.Text, typesBox.Text);
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+         DataBD data=   worker.GetDataMail();
+            string s = data.getType(0);
+            s = s;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
         }
     }
 }

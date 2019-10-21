@@ -8,20 +8,14 @@ namespace Eli
 {
     class SQLDataWorkerClass
     {
-        protected SQLiteConnection con = new SQLiteConnection("Data Source=usersBD.db; Password=Eli;");        
-        private List<string> logins = new List<string>();
-        private List<string> passes = new List<string>();
-        public string getLogin(int index) {
-            return logins[index];
-         }
-        public string getPass(int index)
-        {
-            return passes[index];
-        }
+
+        protected SQLiteConnection con = new SQLiteConnection("Data Source=usersBD.db; Password=Eli;");
+        private DataBD data = new DataBD();
+
         public string GetVK(string nameRow)
         {
             con.Open();
-            var com = new SQLiteCommand($"Select {nameRow} from Data where typeCode='VK'", con);
+            var com = new SQLiteCommand($"Select {nameRow} from dataTable where typeCode='VK'", con);
             var bufString = com.ExecuteScalar();
             con.Close();
             if (bufString != null)
@@ -30,17 +24,39 @@ namespace Eli
                 return "error";
         }
 
-        public string GetDataMail()
+        public DataBD getAllBDData()
+        {
+            return data;
+        }
+        public void InsertData(string login, string pass, string type)
         {
             con.Open();
-            var com = new SQLiteCommand($"Select * from Data where type='Mail'", con);
+            var com = new SQLiteCommand($"insert into dataTable values ('{type}','nul','{login}','{pass}')", con);
+
             var bufString = com.ExecuteScalar();
 
             con.Close();
-            if (bufString != null)
-                return (string)bufString;
-            else
-                return "error";
+        }
+
+
+        public DataBD GetDataMail()
+        {
+            con.Open();
+            var com = new SQLiteCommand($"Select * from dataTable", con);
+            var reader = com.ExecuteReader();
+
+
+            // if (reader.HasRows)
+            reader.Read(); 
+            object i = reader.GetValue(0);
+            {
+                while(reader.Read())
+                {//2,3,0
+                    data.Add((string)reader.GetValue(2), (string)reader.GetValue(3), (string)reader.GetValue(0));
+                }
+            }
+            con.Close();
+            return data;
         }
 
     }

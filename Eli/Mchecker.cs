@@ -32,7 +32,7 @@ namespace Eli
                 var bufCount = inbox.Count;
                 if ((bufCount > count) && (count != 0))               
                 {
-                    Informing((count - bufCount).ToString(), "xsenotest@mail.ru");
+                    Informing((count - bufCount).ToString(), login);
                     count = bufCount;                    
                 }
                 else if (count == 0)
