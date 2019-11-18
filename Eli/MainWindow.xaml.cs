@@ -1,4 +1,4 @@
-﻿using Eli.ViewModels;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace Eli
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-         //   worker.InsertData(loginBox.Text, passBox.Text, typesBox.Text);
+           worker.InsertData(loginBox.Text, passBox.Text, typesBox.Text);
         
         }
         private void timer_Tick(object sender, EventArgs e)
@@ -44,10 +44,10 @@ namespace Eli
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            // timer = new DispatcherTimer();
-            //timer.Tick += new EventHandler(timer_Tick);
-            //timer.Interval = new TimeSpan(0, 0, 10);
-            //timer.Start();
+             timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 10);
+            timer.Start();
          
         }
     }

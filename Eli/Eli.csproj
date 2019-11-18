@@ -122,13 +122,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="IS classes\DataBD.cs" />
-    <Compile Include="Model\CommandDe.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Work Classes\Mchecker.cs" />
     <Compile Include="Work Classes\SImain.cs" />
     <Compile Include="IS classes\SQLDataWorkerClass.cs" />
     <Compile Include="Work Classes\VKchecker.cs" />
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,7 +136,7 @@
     </Compile>
     <Compile Include="Checker.cs" />
     <Compile Include="Work Classes\ISIchecker.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
