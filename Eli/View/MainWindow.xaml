@@ -17,9 +17,11 @@
                         <ColumnDefinition Width="80*"/>
                         <ColumnDefinition Width="389*"/>
                     </Grid.ColumnDefinitions>
+                    <Label   Name="TimeInterface" Content="" HorizontalAlignment="Left" Margin="249,134,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <Button Content="Start" HorizontalAlignment="Left" Margin="67,38,0,0" x:Name="startButton" Click="StartButton_Click" VerticalAlignment="Top" Width="110" Height="38" Grid.Column="1"/>
-                    <Slider HorizontalAlignment="Left" Name="TimeLabel" Margin="35,134,0,0" VerticalAlignment="Top" Width="193" IsEnabled="False" Grid.Column="1"/>
-                    <Label Content="5 минут" Name="TimeInterface" HorizontalAlignment="Left" Margin="249,134,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Slider HorizontalAlignment="Left"     IsSnapToTickEnabled="True" SelectionStart="1"
+    TickFrequency="1"   Name="TimeLabel" Minimum="1" Maximum="100" ValueChanged="TimeLabel_ValueChanged"  Margin="35,134,0,0" VerticalAlignment="Top" Width="193" IsEnabled="true" Grid.Column="1"/>
+                    
                 </Grid>
             </TabItem>
             <TabItem Header="Добавить">

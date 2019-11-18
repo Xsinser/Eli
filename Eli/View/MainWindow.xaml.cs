@@ -1,4 +1,5 @@
 ﻿
+using Eli.Presenter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,33 +23,41 @@ namespace Eli
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DispatcherTimer timer;
+         
         private Checker checker = new Checker();
         private SQLDataWorkerClass worker=new SQLDataWorkerClass();
+        private string timer { set { TimeInterface.Content = value; } }
+        public event EventHandler OnAddClick;
+        public event EventHandler OnStartClick;
+        public event EventHandler OnTimerValueChanged;
+        bool errorChecker = false;
         public MainWindow()
         {
             InitializeComponent();
-            
+            new Presenter_MainForm(this);
+            timer = "1 минут";
+            errorChecker = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           worker.InsertData(loginBox.Text, passBox.Text, typesBox.Text);
-        
-        }
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            checker.Check();
-            
-        }
 
+            OnAddClick.Invoke(sender, e);
+
+        }
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-             timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 10);
-            timer.Start();
+            OnStartClick.Invoke(sender, e);          
          
+        }
+
+        private void TimeLabel_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+            timer = TimeLabel.Value + " минут";
+            if(errorChecker)
+            OnTimerValueChanged.Invoke(sender, e);
+
         }
     }
 }
