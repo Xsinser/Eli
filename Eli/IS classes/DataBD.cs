@@ -29,5 +29,11 @@ namespace Eli
             passes.Add(pass);
             types.Add(type);
         }
+
+        public int length {
+            get
+            {
+                return logins.Count;
+            } }
     }
 }

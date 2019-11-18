@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eli.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,30 +23,32 @@ namespace Eli
     public partial class MainWindow : Window
     {
         private DispatcherTimer timer;
-        private Checker checker;
+        private Checker checker = new Checker();
         private SQLDataWorkerClass worker=new SQLDataWorkerClass();
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            worker.InsertData(loginBox.Text, passBox.Text, typesBox.Text);
+         //   worker.InsertData(loginBox.Text, passBox.Text, typesBox.Text);
+        
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-         DataBD data=   worker.GetDataMail();
-            string s = data.getType(0);
-            s = s;
+            checker.Check();
+            
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Start();
+            // timer = new DispatcherTimer();
+            //timer.Tick += new EventHandler(timer_Tick);
+            //timer.Interval = new TimeSpan(0, 0, 10);
+            //timer.Start();
+         
         }
     }
 }

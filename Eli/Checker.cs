@@ -9,7 +9,8 @@ namespace Eli
     class Checker
     {
         Dictionary<string, ISIchecker> siTypes = new Dictionary<string, ISIchecker>(2);
-
+        private SQLDataWorkerClass worker;
+        DataBD data;
         private void CollectionUpdate()
         {
             siTypes.Add("VK", new VKchecker());
@@ -19,11 +20,18 @@ namespace Eli
         public Checker()
         {
             CollectionUpdate();
+            worker  = new SQLDataWorkerClass();
         }
         public void Check()
         {
-            //for() перебор запросов и выхов 
-            { }
+            data = worker.GetDataMail();
+            int ia = data.length;
+            for (int i=0;i<ia;i++)
+            {
+
+                if (siTypes[data.getType(i)].AuthorizeCheck(data.getLogin(i), data.getPass(i)))
+                    siTypes[data.getType(i)].Check(data.getLogin(i), data.getPass(i));
+            }
             //конец?!
         }
     }

@@ -43,12 +43,7 @@ namespace Eli
         {
             con.Open();
             var com = new SQLiteCommand($"Select * from dataTable", con);
-            var reader = com.ExecuteReader();
-
-
-            // if (reader.HasRows)
-            reader.Read(); 
-            object i = reader.GetValue(0);
+            var reader = com.ExecuteReader();           
             {
                 while(reader.Read())
                 {//2,3,0

@@ -38,10 +38,10 @@ namespace Eli
         {
             this.login =login;
             this.pass = pass;
-            VkApi api = AuthorizeInSN();
+            VkApi api ;
             try
             {
-
+                api = AuthorizeInSN();
             }
             catch
             {

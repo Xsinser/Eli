@@ -8,5 +8,7 @@ namespace Eli
 {
     interface ISIchecker
     {
+            void Check(string login, string pass);
+        bool AuthorizeCheck(string login, string pass);
     }
 }

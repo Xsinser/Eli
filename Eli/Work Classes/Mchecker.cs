@@ -46,10 +46,11 @@ namespace Eli
 
         public override bool AuthorizeCheck(string login, string pass)
         {
-            GetImap();
+           
             var client = new ImapClient();
             try
             {
+                    GetImap();
                     client.ServerCertificateValidationCallback = (s, c, h, e) => true;
                     client.Connect(imap, 993, true);
                     client.Authenticate(login, pass);

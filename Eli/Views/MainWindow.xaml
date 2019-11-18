@@ -4,8 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eli"
+        xmlns:viewmodels="clr-namespace:Eli.ViewModels"
         mc:Ignorable="d"
         Title="Xsammer" Height="313" Width="573">
+    <Window.DataContext>
+        <viewmodels:MainViewModel/>
+    </Window.DataContext>
+        
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="248" Margin="37,10,0,0" VerticalAlignment="Top" Width="475">
             <TabItem Header="Начать">
@@ -14,7 +19,7 @@
                         <ColumnDefinition Width="80*"/>
                         <ColumnDefinition Width="389*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Start" HorizontalAlignment="Left" Margin="67,38,0,0" x:Name="startButton" Click="StartButton_Click" VerticalAlignment="Top" Width="110" Height="38" Grid.Column="1"/>
+                    <Button Content="{Binding Click}" HorizontalAlignment="Left" Margin="67,38,0,0" x:Name="startButton" Click="StartButton_Click" VerticalAlignment="Top" Width="110" Height="38" Grid.Column="1"/>
                     <Slider HorizontalAlignment="Left" Name="TimeLabel" Margin="35,134,0,0" VerticalAlignment="Top" Width="193" IsEnabled="False" Grid.Column="1"/>
                     <Label Content="5 минут" Name="TimeInterface" HorizontalAlignment="Left" Margin="249,134,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                 </Grid>
@@ -28,7 +33,7 @@
                     <Label Content="Type information source" HorizontalAlignment="Left" Margin="270,18,0,0" VerticalAlignment="Top"/>
                     <ComboBox HorizontalAlignment="Left" Margin="270,41,0,0" VerticalAlignment="Top"  Name="typesBox" Width="120">
                         <TextBlock>VK</TextBlock>
-                        <TextBlock>Email</TextBlock>
+                        <TextBlock>Mail</TextBlock>
  
                     </ComboBox>
                     <Button Content="Add" HorizontalAlignment="Left" Margin="270,97,0,0" Click="Button_Click" VerticalAlignment="Top" Width="110" Height="38"/>
